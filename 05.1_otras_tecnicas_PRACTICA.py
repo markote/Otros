@@ -14,11 +14,28 @@ MtFCode(mensaje,alfabeto)=[6, 6, 2, 2, 3, 1, 1, 2, 2, 5, 2,
                            2, 4, 1, 4, 3, 2, 8, 6, 7, 8]
 
 """
+def search(alfabeto,char):
+    
+    for i in range(0,len(alfabeto)):
+        if alfabeto[i] == char :
+            tmp1 = alfabeto[:i]
+            tmp2 = (alfabeto[i:])[1:]
+            head =  [alfabeto[i]]
+            return (i,head+tmp1+tmp2)
+     
+    print("error, char:",char," alfabeto:",alfabeto)
 
 def MtFCode(mensaje,alfabeto):
+    
+    result=[]    
+    for c in mensaje:
+        num,alfabeto = search(alfabeto,c)
+        result+=[num]
+    return result
 
-
-
+mensaje='mi mama me mima mucho'
+alfabeto=[' ', 'a', 'c', 'e', 'h', 'i', 'm', 'o', 'u']
+print(MtFCode(mensaje,alfabeto))
 
 """
 Dado un mensaje, aplicar la transformación de Burrows-Wheeler
