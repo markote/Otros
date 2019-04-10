@@ -47,11 +47,23 @@ BWT(mensaje)=('sdmccspcaaaaaaaa', 8)
 """
 
 def BWT(mensaje):
-
+    mensajeor = mensaje
+    res=[mensaje]
+    for i in range(1,len(mensaje)):
+        mensaje=(mensaje+mensaje[0])[1:]
+        res+=[mensaje]
+    res=sorted(res)
+    print("res:",res)
+    ultima_columna=""
+    for i in range(0,len(res)):
+        ultima_columna+=(res[i])[-1]
+        if res[i] == mensajeor:
+            posicion=i
+        
     return ultima_columna, posicion    
 
 
-
+print(BWT("CASAMASA"))
 
 
 """
